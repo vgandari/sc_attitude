@@ -1,0 +1,99 @@
+SPACECRAFT ATTITUDE SIMULATION
+Victor Gandarillas
+gandarillasv@gmail.com
+
+SUMMARY
+
+The goal of this project is to simulate the rotational motion of a spacecraft in orbit. Plots of Euler angles and polhode curves (angular velocity time histories) are generated. Equations of Motion included in this package are for a rigid body in a torque-free environment and in circular orbit. See the EOM section under the Source Code Guide for more information.
+
+The code is designed to be modular. Without getting very fancy, the user only needs to modify sc_attitude, sc_init, and sc_batch, depending on the experiment.
+
+REVISION HISTORY
+
+Date / Description / Responsible
+16 June 2014 / Baseline / Victor Gandarillas
+
+LICENSE
+
+The MIT License (MIT)
+Copyright (c) 2014 Victor Gandarillas
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+LIMITATIONS
+
+This program does not currently:
+
+Model a spacecraft in noncircular orbit.
+Model complex spacecraft. Gyrostats (satellites with stabilizing rotors) are modeled, but nothing more complex is modeled.
+Calculate precession and spin angles (in progress).
+
+Future updates are at the end of the manual.
+
+SETUP
+
+MATLAB is required to run this program. All the code is written assuming the necessary functions are in the current path or working directory.
+
+SOURCE CODE GUIDE
+
+Main Script:
+sc_attitude - main script, sufficiently commented to get the user started after reading the manual
+
+General:
+VERIFY_eom - script used to test sc_symmetricEOMq and sc_gyrostat_EOMC against Kane
+sc_init - initializes spacecraft
+sc_batch - contains information to pass to sc_init during batch analysis
+sc_regionI - calculates s/c region using mass properties without plotting stability chart
+sc_regionI - calculates s/c region using mass property ratios without plotting stability chart
+save_plot - save figure as .pdf*
+section_array - used for combining data for ICs in sc_batch
+crossop - generates a cross operator from a vector for Poinsot construction
+qrate - rate of change of quaternion elements
+The rest in this folder are either unused in the default configuration or have clear titles and short descriptions included in each file.
+
+*requires export_fig (not included, available at MATLAB File Exchange)
+
+Equations of motion:
+tf_EOMC
+sc_EOMC
+tf_EOMq
+sc_EOMq
+gyrostat_EOMC
+symmetric_EOMq
+
+*q ending signifies quaternion orientation representation, while C ending signifies direction cosine matrix (row operator) orientation representation
+
+Forces and Moments (used within EOM functions):
+eulerTF - torque free accelerations
+f2_C - second-order approximation of gravity moment using C to represent orientation
+f2_q - second-order approximation of gravity moment using q to represent orientation
+rotor - angular accelerations resulting from using rotors
+
+*User may define more complex forces within functions and add them to existing EOM functions.
+
+Graphics:
+plot_sc_euler - plot Euler Angle time histories
+plot_sc_polhode - plot polhode curve with inertia ellipsoid
+plot_sc_stab - plot mass property ratios on stability chart
+
+SIMPLE MODIFICATIONS
+
+display max angle (edit plot_euler)
+export_fig options (edit save_plot)
+suppress rotor speed information when not using rotors (edit graph_titles)
+
+FUTURE UPDATES
+
+cleaner spacecraft initialization
+-single vs batch run
+-automatic selection of IC assignment based on EOM used
+euler angle histories
+cleaner variable passes especially with plot titles
+cleaner figure screen output suppression
+cleaner/more modular way to save files
+EOM for noncircular orbit and complex spacecraft
+EOM for constant torque input
+
+
