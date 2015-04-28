@@ -1,0 +1,6 @@
+utils/graphics
+
+Functions used to generate graphics
+e.g. Plots
+e.g. Video
+e.g. export_fig package (MATLAB)
