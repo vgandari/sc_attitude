@@ -1,6 +1,5 @@
-utils/usr:
+/utils/usr
 
 Test Case Files
-Single Case Input Files
-Batch Analysis Inputs
-
+User defined Input Files (/data)
+Code Templates

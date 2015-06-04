@@ -1,5 +1,6 @@
-utils/lib
+/utils/lib
 
-Function Header Files
-Custom Libraries
-Not specific to project (utils/src)
+Header Files
+Standard/Custom Libraries
+Class definitions
+*For use in all projects

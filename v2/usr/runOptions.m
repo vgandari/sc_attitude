@@ -1,4 +1,4 @@
-function [q] = ftemplate(p)
+function [q] = runOptions(p)
 % Function description
 % 
 % Inputs
@@ -10,13 +10,8 @@ function [q] = ftemplate(p)
 % Victor Gandarillas
 % gandarillasv@gmail.com
 % 
-% Last Updated: 20150425
+% Last Updated: 20150501
 % 
-% :TODO:
-% Uncomment error line
-% Complete header
-% Write function
-% Add error checking code
 
 % :TODO: the next task
 % :BUG: thing to fix
@@ -29,7 +24,7 @@ function [q] = ftemplate(p)
 % -------------------------------------------------------------------------
 % !!! EDIT THESE LINES BEFORE EACH EDIT/SAVE/RUN !!!
 % -------------------------------------------------------------------------
-fname='ftemplate';
+fname='runOptions';
 error([fname, ' has not been written']);
 warning([fname, ' has not been verified']);
 warning([fname, ' has not been validated']);
@@ -46,7 +41,20 @@ end
 % -------------------------------------------------------------------------
 % FUNCTION DEFINITION
 % -------------------------------------------------------------------------
-q=[];
+
+% :TODO: Right now, the program generates and plots data. User can set
+% option to run, plot, and save, load and plot, and run without saving.
+% User should be able to set:
+% load/generate raw data
+% overwrite existing raw data on/off (if generated)
+% plot on/off
+% screen output on/off (if plot on)
+% save plot on/off (if plot on)
+
+
+
+
+
 
 % -------------------------------------------------------------------------
 % END OF FUNCTION

@@ -1,0 +1,221 @@
+INITIAL CONDITIONS
+
+TORQUE FREE
+L.PMOI (40 orbits)
+q0 = [0; 0; 1; 0];
+w0 = [-1; .3; .2];
+I(ii) = 60;
+I(j) = 40;
+I(k) = 50;
+
+S.PMOI (40 orbits)
+q0 = [0; 0; 1; 0];
+w0 = [.3; -1; .2];
+I(ii) = 60;
+I(j) = 40;
+I(k) = 50;
+
+I.PMOI (100 orbits)
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+I(ii) = 60;
+I(j) = 40;
+I(k) = 50;
+
+REGION 1 (gravity is a destabilizing torque when spun about third axis
+initially aligned with orbit frame even though third axis is small PMOI,
+cannot be stabilized by a rotor for very long, requires very fast rotor;
+run for w3 = 1, s1 [interesting], s2 [interesting], s3):
+ii = 1, j= 2, k = 3
+I(ii) = 30;
+I(j) = 40;
+I(k) = 50;
+
+REGION 7 (gravity is a destabilizing torque when spun about third axis
+initially aligned with orbit frame even though third axis is large PMOI,''
+cannot be stabilized by a rotor for very long, requires very fast rotor;
+run for w3 = 1, s1, s2, s3):
+ii = 1, j= 2, k = 3
+I(ii) = 60;
+I(j) = 70;
+I(k) = 50;
+
+GRAVITY TORQUE
+NO GYROS - REGION 1, about orbit normal
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+unbounded
+
+NO GYROS - REGION 1, about orbit tangent
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -1; .2];
+
+NO GYROS - REGION 1, about orbit radial
+q0 = [0; 0; 1; 0];
+w0 = [-1; .2; .3];
+
+NO GYROS - REGION 7, about orbit normal
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+unbounded
+
+NO GYROS - REGION 7, about orbit tangent
+q0 = [1; 0; 0; 0];
+w0 = [-.3; -1; .2];
+
+NO GYROS - REGION 7, about orbit radial
+q0 = [0; 0; 1; 0];
+w0 = [-1; .2; .3];
+
+
+SINGLE GYRO STABILIZATION REGION 1
+GYRO 1 - REGION 1, about orbit radial (1), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-1; .2; .3];
+
+GYRO 1 - REGION 1, about orbit tangent (2), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -1; .2];
+
+GYRO 1 - REGION 1, about orbit normal (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+
+GYRO 2 - REGION 1, about orbit radial (1), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-1; .2; .3];
+
+GYRO 2 - REGION 1, about orbit tangent (2), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -1; .2];
+
+GYRO 2 - REGION 1, about orbit normal (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+
+GYRO 3 - REGION 1, about orbit radial (1), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-1; .2; .3];
+
+GYRO 3 - REGION 1, about orbit tangent (2), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -1; .2];
+
+GYRO 3 - REGION 1, about orbit normal (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+
+SINGLE GYRO STABILIZATION REGION 7
+GYRO 1 - REGION 7, about orbit radial (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-1; .2; .3];
+
+GYRO 1 - REGION 7, about orbit tangent (3), s = 10
+q0 = [1; 0; 0; 0];
+w0 = [-.3; -1; .2];
+
+GYRO 1 - REGION 7, about orbit normal (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+
+GYRO 2 - REGION 7, about orbit radial (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-1; -.2; .3];
+
+GYRO 2 - REGION 7, about orbit tangent (3), s = 10
+q0 = [1; 0; 0; 0];
+w0 = [-.3; -1; .2];
+
+GYRO 2 - REGION 7, about orbit normal (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+
+GYRO 3 - REGION 7, about orbit radial (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-1; .2; .3];
+
+GYRO 3 - REGION 7, about orbit tangent (3), s = 10
+q0 = [1; 0; 0; 0];
+w0 = [-.3; -1; .2];
+
+GYRO 3 - REGION 7, about orbit normal (3), s = 10
+q0 = [0; 0; 1; 0];
+w0 = [-.3; -.2; 1];
+
+
+DUAL GYRO STABILIZATION REGION 1
+
+GYROS 1, 2 - REGION 1, about orbit radial (1), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-1; .2; .3];
+
+GYROS 1, 2 - REGION 1, about orbit tangent (2), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 2 - REGION 1, about orbit normal (3), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 3 - REGION 1, about orbit radial (1), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 3 - REGION 1, about orbit tangent (2), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 3 - REGION 1, about orbit normal (3), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 2, 3 - REGION 1, about orbit radial (1), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 2, 3 - REGION 1, about orbit tangent (2), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 2, 3 - REGION 1, about orbit normal (3), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+DUAL GYRO STABILIZATION REGION 7
+
+GYROS 1, 2 - REGION 7, about orbit radial (1), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 2 - REGION 7, about orbit tangent (2), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 2 - REGION 7, about orbit normal (3), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 3 - REGION 7, about orbit radial (1), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 3 - REGION 7, about orbit tangent (2), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 1, 3 - REGION 7, about orbit normal (3), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 2, 3 - REGION 7, about orbit radial (1), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 2, 3 - REGION 7, about orbit tangent (2), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+
+GYROS 2, 3 - REGION 7, about orbit normal (3), s = 10
+q0 = [0; 0; 0; 1];
+w0 = [-.3; -.2; 1];
+

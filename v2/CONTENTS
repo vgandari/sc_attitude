@@ -1,8 +1,9 @@
-utils
+/utils
 
 #Be sure to delete README when copying to new peoject
 
 /bin
+/doc
 /graphics
 /lib
 /models
