@@ -1,11 +1,11 @@
 function main()
 % Runs sc_attitude, v2
-% 
+%
 % Victor Gandarillas
 % gandarillasv@gmail.com
-% 
+%
 % Last Updated: 20150509
-% 
+%
 % :TODO: Define functions called
 % :TODO: MAKE THIS OBJECT ORIENTED
 
@@ -145,7 +145,7 @@ for testCase = testCaseSet;
     % :TODO: CHOOSE CORRECT FUNCTION CALL
     % INITIALIZE SPACECRAFT BASED ON CASES DEFINED IN dataOptions()
     [tspan, IC, file_name, region, label_x_name] = dataOptions(testCase);
-    
+
     % :TODO: VERIFY ODE45 CALL
     % RUN/LOAD (BASED ON FLAG VALUE)
     if run ~= 0
@@ -153,10 +153,10 @@ for testCase = testCaseSet;
     else
         load(horzcat(file_name, '.mat'));
     end
-    
+
     % SAVE DATA
     save(horzcat(file_name, '.mat'), 'time', 'data');
-    
+
     % :KLUDGE:
     % To plot shorter times than the full run (comment out for full run)
     [val, ind] = min(abs(time - plottime));
@@ -167,10 +167,10 @@ for testCase = testCaseSet;
         time = time(1:ind);
         data = data(1:ind, :);
     end
-    
+
     % :TODO: EULER ANGLES
     nutation = acos(data(:, 15)); % euler_history(time, data(:, 7:15));
-    
+
     % :TODO: MAKE A setTitle FUNCTION
     % SET GRAPH TITLES
                                                                              {
@@ -179,38 +179,38 @@ for testCase = testCaseSet;
     else
         omega0 = IC(2:4);
     end
-    
+
     if eom == 4
         s0 = IC(29:31);
     else
         s0 = [0, 0, 0];
     end
-    
+
     [plotname, rotorspeed] = graph_titles(author, region, ...
         label_x_name, omega0, s0);
                                                                              }
-    
-    
+
+
                                                                              {
     % PLOT
     % Plot Euler Angles
     eul = plot_sc_euler(time, nutation, 'Nutation', plotname, rotorspeed, ...
         label_x_name);
     set(gcf,'Visible','off'); % suppress output to speed up file generation
-    
+
     % Plot Inertia ellipsoid and polhode curve
     pol = plot_sc_polhode(time, IC(1:3), data(:, 4:6), res3D, plotname, ...
         rotorspeed);
     set(gcf,'Visible','off'); % suppress output to speed up file generation
                                                                              }
-    
-    
+
+
     % :TODO: SUPPRESS OUTPUT, TEST EXISTENCE OF FILES (OVERWRITE FLAG)
     % SAVE PLOTS
     % Save Plots as figures to edit properties later
     saveas(eul, horzcat(file_name, '_nut.fig'));
     saveas(pol, horzcat(file_name, '.fig'));
-    
+
     % Save Plots as publishable pdfs; save_plot uses export_fig functions
     save_plot(eul, horzcat(file_name, '_nut'));
     save_plot(pol, file_name);
@@ -219,7 +219,7 @@ end
 
 % TO DO
 % FIX EULER_HISTORY, PLOT_EULER FOR ALL THREE ANGLES
-% ADD INITIAL ORIENTATION INFORTATION TO PLOT TITLE?
+% ADD INITIAL ORIENTATION INFORMATION TO PLOT TITLE?
 % ADD MOVIE
 
 

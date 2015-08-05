@@ -1,0 +1,66 @@
+MATLAB Simulation Structure
+
+/bin - executables
+/etc - system scripts
+/lib - /classes, /headers, /config
+/src - /sim, /model, /usr
+
+/lib/config:
+initialization files
+file naming functions
+path definitions from driver files
+
+/src/model:
+/dyn - dynamics (force models - /gravity, /aero, moments, etc.)
+/kin - kinematics (rotation, acceleration, etc.)
+/mdl - Simulink/Stateflow, controller, estimator, disturbance, sensor models
+
+/src/sim - inputs to solver (call functions in /dyn and /kin)
+
+/src/usr
+driver files
+/data
+/graphics - /plottingTools, /movie, /gui
+/log
+
+Files in /src/sim are functions input to ODE45.
+They call functions in /src/model. They should fully define which models are used for plants, controllers, estimators, states, disturbances, etc.
+They also determine which ICs are constants.
+ICs that are most typically not constant should have the smallest indices to avoid changing most /src/sim functions.
+
+Driver files define:
+/src/sim selection
+ICs
+Real time display options
+Overwrite settings
+Output data path (/src/usr/data is default)
+Load data path for plotting (/src/usr/data is default)
+Dispersion settings (disperse ICs and/or disturbances)
+
+Driver files may call functions from any directory.
+Driver files may not overwrite /lib, /src, /bin, or /etc files except /src/usr/data
+
+
+=================================
+BUILD IN THE FOLLOWING ORDER
+=================================
+
+driver - select eom
+driver - select data location
+driver - select run cases
+driver - plot on/off
+eom - ode45 update
+overwrite function
+plot - after datagen, can be used without running sim
+plot - screen output suppression
+plot - movie
+log - define output logfile location
+log - define logfile name (run case, time, date)
+log - find >> MATLAB equivalent, file I/O)
+Build block diagram with appropriate variables and operations
+Euler angles - Simulink block
+Create S-Functions
+Add gain scheduling controller
+Multiple satellites
+lambchop/orbit
+plot - poincare

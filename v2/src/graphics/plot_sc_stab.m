@@ -1,4 +1,4 @@
-function plot_sc_stab(K1, K2, author)
+function plotScStab(K1, K2, author)
 % This function plots the spacecraft stability boundaries with a point
 % representing the spacecraft's mass property ratios. Regions are labeled
 % 1-7. Region 1 is stable, while Region 7 is not guaranteed to be stable
