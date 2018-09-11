@@ -1,7 +1,0 @@
-sc_attitude
-
-Spacecraft Dynamics
-Thomas R. Kane, Peter W. Likins, David A. Levinson
-Mcgraw-Hill (December 1981)
-ISBN-10: 0070378436
-ISBN-13: 978-0070378438
